@@ -1,0 +1,60 @@
+{% extends "edit_base.html" %}
+{% block head_css %}
+{{super()}}
+{% endblock %}
+{% block content %}
+{% include 'admin_nav.html' %}
+<div class="container-fluid" style="margin-top:65px; margin-bottom:20px;">
+    {% if edits|length %}
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">Editable Pages</div>
+                <div class="list-group">
+                    {% for page, regions in edits.items() %}
+                        <a href="{{ url_for('edits.index', page=page) }}" class="list-group-item list-group-flush list-group-item-action" style="display:flex; flex-grow:1; flex-shrink:1;min-height:inherit;">
+
+                        {{ page }}
+                        <span class="badge" style="position:absolute; right:10%; top: 25%;">{{ regions.keys()|length }}</span>
+                    </a>
+
+                    {% endfor %}
+
+                </div>
+                <a href="/auth/admin" class="btn btn-dark" style="marging-top:10px;">Return</a>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <p class="lead">Editing {{ page }}</p>
+            <form method="POST" action="{{ url_for('edits.save') }}" onsubmit="save()">
+                <input type="hidden" name="page" value="{{ page }}"/>
+                {% for key, section in edits[page].items() %}
+                <small><strong>{{ key|upper }}</strong></small>
+                <div class="form-group" style="margin-top: 5px;">
+                    {% if summernote %}
+                    <div class="summernote" id="{{ key }}">{% if section.edited is none %}{{ section.original }}{% else
+                        %}{{ section.edited }}{% endif %}
+                    </div>
+                    <input type="hidden" name="{{ key }}" value=""/>
+                    {% else %}
+                    <textarea class="form-control" rows="4" name="{{ key }}">{% if section.edited is none %}{{ section.original }}{% else %}{{ section.edited }}{% endif %}</textarea>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <input type="submit" value="Save Page" class="btn btn-dark"/>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-sm-12" style="text-align: center; padding-top: 40px;">
+            <i class="glyphicon glyphicon-warning-sign" style="font-size: 100px; color: #eee;"></i>
+            <p class="lead" style="width: 50%; margin: 0 auto; padding-top: 40px;">No editable pages loaded yet. After
+                adding editable regions to your templates, visit each page in your browser to load it.</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

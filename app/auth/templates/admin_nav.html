@@ -1,0 +1,7 @@
+{% block navbar %}
+<nav class="navbar fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{url_for('auth.admin')}}">Admin Page</a>
+    <a href="{{url_for('main.index')}}" class="btn btn-secondary">Home page</a>
+    <a href="{{url_for('auth.logout')}}" class="btn btn-danger" style="right:0px;">Logout</a>
+</nav>
+{% endblock %}

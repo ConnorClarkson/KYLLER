@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>KYLLER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Author: C.J. Clarkson, KYLLER online presence">
+    <meta name="theme-color" content="#e05d2d"/>
+    {% block head_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    {% endblock %}
+
+</head>
+<body style="background: rgb({%editable background %}18,33,193 {%endeditable%});
+background: linear-gradient(135deg, rgba({%editable gradient_1_RGB %}18,33,193{%endeditable%},1) 0%,
+rgba({%editable gradient_2_RGB %}180,14,14{%endeditable%},1) 100%);">
+<!--
+Nav Bar
+-->
+{% include 'navbar.html' %}
+
+<div class="content d-md-flex">
+    <!--Content-->
+    {% block content %}{% endblock %}
+</div>
+<div id="footer">
+
+    <!--Footer-->
+    {% include 'footer.html' %}
+
+</div>
+    {% block bottom_css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/solid.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/brands.min.css') }}">
+    {% endblock %}
+</body>
+</html>

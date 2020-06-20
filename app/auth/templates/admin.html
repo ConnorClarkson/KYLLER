@@ -1,0 +1,42 @@
+{% extends "login_base.html" %}
+
+{% block content %}
+{% include 'admin_nav.html' %}
+<div class="container-fluid">
+    <div class="row" style="padding-top:65px;">
+        <div class="col-6">
+            <div class="card">
+                <h3 class="card-header">
+                    Editable Content
+                </h3>
+                <div class="card-body">
+                    <a href="edits" class="btn btn-dark">Edit Content here.</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <h3 class="card-header">
+                    Editable Music Cover
+                </h3>
+                <div class="card-body">
+                    <a href="upload-image" class="btn btn-dark">Edit cover here.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding-top:65px;">
+        <div class="col-6">
+            <div class="card">
+                <h3 class="card-header">
+                    Help
+                </h3>
+                <div class="card-body">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

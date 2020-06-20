@@ -1,0 +1,43 @@
+footer {
+  position: absolute;
+  bottom: 1vh;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  max-height: 80px;
+  line-height: 5px; /* Vertically center the text there */
+}
+.footer-copyright p {
+    margin-top:3vh;
+    margin-bottom:0;
+ }
+ ul.list-social li  a{
+  display: block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  border-radius: 100%;
+  color: white;
+}
+i {
+    font-style:normal;
+}
+
+ul.list-social li.social-instagram a {
+  background-color: #323232;
+}
+ul.list-social li.social-instagram a:hover {
+  background-color: #000000;
+}
+ul.list-social li.social-soundcloud a {
+  background-color: #dd4b39;
+}
+ul.list-social li.social-soundcloud a:hover {
+  background-color: #B43E2F;
+}
+ul.list-social li.social-spotify a {
+  background-color: #006622;
+}
+ul.list-social li.social-spotify a:hover {
+  background-color: #00cc44;
+}

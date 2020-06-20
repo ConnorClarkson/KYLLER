@@ -1,0 +1,156 @@
+{% extends "login_base.html" %}
+{% block head_css %}
+
+<!-- Latest compiled and minified CSS -->
+
+{{super()}}
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css"/>
+
+{% endblock %}
+
+{% block content %}
+{% include 'admin_nav.html' %}
+<div class="container-fluid">
+    <div class="row justify-content-center" style="padding-top:80px;">
+        <div class="col-6">
+            <div class="card">
+                <h1 class="card-header">{{title}}</h1>
+                <div class="card-body">
+                    {% if 'New' in title %}
+                    {% set form_url = url_for('auth.new_event') %}
+                    {% else %}
+                    {% set form_url = url_for('auth.edit_event', id=form.id.data) %}
+                    {% endif %}
+                    <form action="{{ form_url }}" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.id.label}}
+                            </div>
+                            <div class="col-6 input_col">
+                                <div class='input-group' id='id'>
+                                    <input type='text' class="form-control" name="id" value="{{form.id.data}}"
+                                           readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if 'Edit' in title %}
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.orig_date.label}}
+                            </div>
+                            <div class="col-6 input_col">
+                                <div class='input-group' id='orig_date'>
+                                    <input type='text' class="form-control" name="orig_date"
+                                           value="{{form.date.data|datetimeHMformat}}" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.date.label}}
+                            </div>
+                            <div class="col-6 input_col">
+                                <div class="input-group date" id="date" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input"
+                                           data-target="#date" name="date" value="{{form.date.data|datetimeHMformat}}"/>
+                                    <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.venue.label}}
+                            </div>
+                            <div class="col-6 input_col">
+                                <div class='input-group' id='venue'>
+                                    <input type='text' class="form-control" name="venue" value="{{form.venue.data}}"/>
+                                    <div class="input-group-append"
+                                         data-toggle="tooltip" data-placement="right"
+                                         title="Add Details about the event Name and where the venue is.">
+                                        <div class="input-group-text"><i class="fa fa-house-user"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.link.label}}
+                            </div>
+                            <div class="col-6 input_col">
+                                <div class='input-group' id='link'>
+                                    <input type='text' class="form-control" name="link" value="{{form.link.data}}"/>
+                                    <div class="input-group-append"
+                                         data-toggle="tooltip" data-placement="right"
+                                         title="Add a link to where people can buy tickets to the event.
+                                         Leave blank if buying on the door">
+                                        <div class="input-group-text"><i class="fa fa-link"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.on_the_door.label}}
+                            </div>
+                            <div class="col-6">
+                                <input id="on_the_door" name="on_the_door" required="" type="checkbox" value="y"
+                                data-toggle="tooltip" data-placement="right"
+                                         title="Check if tickets need to be bought on the door.">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                {{ form.sold_out.label}}
+                            </div>
+                            <div class="col-6">
+                                <input id="sold_out" name="sold_out" required="" type="checkbox" value="y"
+                                data-toggle="tooltip" data-placement="right"
+                                         title="Check if all tickets have been sold out.">
+                            </div>
+                        </div>
+
+                        {{ form.submit() }}
+                        {% if 'Edit' in title %}
+                        {{ form.delete() }}
+                        {% endif %}
+                        <a href="{{url_for('auth.admin')}}" class="btn btn-dark">Back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block end_js %}
+{{super()}}
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            $(function () {
+                $('#date').datetimepicker({ format: 'YYYY-MM-DD HH:mm',
+                sideBySide: true});
+            });
+            $(function () {
+              $('[data-toggle="tooltip"]').tooltip()
+            });
+            });
+
+
+
+
+
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+#cover_artwork {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -55%);
+}
+
+#cover_image {
+    margin:0 auto;
+    -webkit-box-shadow: 0px 0px 19px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 19px 5px rgba(255,255,255,1);
+    box-shadow: 0px 0px 19px 5px rgba(255,255,255,1);
+}
+#cover_button{
+    width:100%;
+    padding:0.5vh;
+    text-align: center;
+    display:inline-block;
+    text-decoration: none !important;
+    margin:0 auto;
+    font-size:1.5rem;
+    -webkit-box-shadow: 0px 0px 19px 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 19px 5px rgba(255,255,255,1);
+    box-shadow: 0px 0px 19px 5px rgba(255,255,255,1);
+}

@@ -1,0 +1,12 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  /* Margin bottom by footer height */
+/*  background: rgb(241,79,17);
+  background: linear-gradient(45deg, rgba(241,79,17,1) 0%, rgba(255,187,40,1) 100%);*/
+
+}
+
+
