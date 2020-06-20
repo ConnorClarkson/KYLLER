@@ -37,6 +37,9 @@ nav {
             margin-top: 16px;
       }
 
+       nav {
+        padding:10vh 1vh !important;
+      }
       nav ul {
             max-height: 0px;
             background: #000;
