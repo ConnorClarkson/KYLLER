@@ -112,9 +112,9 @@ def login():
 
             if access_token:
                 CURRENT_USER = Cog_User(is_active=True, is_authenticated=True, username=result['username'],
-                                        access_token=tokens['AuthenticationResult']['AccessToken'],
-                                        id_token=tokens['AuthenticationResult']['IdToken'],
-                                        token_type=tokens['AuthenticationResult']['TokenType'])
+                                        access_token=response['AuthenticationResult']['AccessToken'],
+                                        id_token=response['AuthenticationResult']['IdToken'],
+                                        token_type=response['AuthenticationResult']['TokenType'])
                 login_user(CURRENT_USER)
                 next_page = request.args.get('next')
                 if not next_page or url_parse(next_page).netloc != '':
