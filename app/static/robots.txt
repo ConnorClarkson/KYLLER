@@ -1,0 +1,8 @@
+User-Agent: *
+Disallow: 
+Allow: /
+Disallow: /admin
+Disallow: /edits
+Disallow: /upload-image
+
+Sitemap: https://kyllerbeats.co.uk/sitemap.xml
