@@ -1,8 +1,17 @@
-{% block footer %}
+{% block navbar %}
 <!-- As a heading -->
+<style>
+  a:link, a:visited, a:hover{
+    text-decoration: none!important;
+    color: white!important;
+    cursor: pointer;
+}
+</style>
 <nav class="navbar navbar-light">
   <span class="navbar-brand mb-0 h1" style="min-width: 25vw;
     border: 5px solid white;
-    padding-left: 2vw; font-size:3rem;color:white;">KYLLER</span>
+    padding-left: 2vw; font-size:3rem;color:white;text-decoration: none;">
+    <a href="{{ url_for('main.index', _method='GET' )}}">KYLLER
+    </a></span>
 </nav>
 {% endblock %}

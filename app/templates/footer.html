@@ -1,5 +1,5 @@
 {% block footer %}
-    <footer class=" container-fluid">
+
         <div class="footer-copyright text-center">
             <ul class="list-inline list-social">
                 <li class="social-instagram list-inline-item">
@@ -12,7 +12,7 @@
                     <a href="{% editable soundcloud %}https://soundcloud.com/kyllerbeats{% endeditable %}" target="_blank" rel="noreferrer"><i class="fab fa-soundcloud" aria-label="soundcloud link" ></i></a>
                 </li>
             </ul>
-            <p style="color:white">KYLLERBEATS&copy;</p>
+            <p style="color:white">KYLLERBEATS&copy;  | <a href="{{ url_for('main.privacy', _method='GET')}}">Cookie Policy</a></p>
         </div>
     </footer>
 {% endblock %}
