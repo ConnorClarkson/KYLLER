@@ -21,22 +21,3 @@ footer {
 i {
     font-style:normal;
 }
-
-ul.list-social li.social-instagram a {
-  background-color: #323232;
-}
-ul.list-social li.social-instagram a:hover {
-  background-color: #000000;
-}
-ul.list-social li.social-soundcloud a {
-  background-color: #dd4b39;
-}
-ul.list-social li.social-soundcloud a:hover {
-  background-color: #B43E2F;
-}
-ul.list-social li.social-spotify a {
-  background-color: #006622;
-}
-ul.list-social li.social-spotify a:hover {
-  background-color: #00cc44;
-}
