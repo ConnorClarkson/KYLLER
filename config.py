@@ -7,8 +7,7 @@ from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.flaskenv'), verbose=True)
-with open(os.path.join(basedir, 'app/static/KEYS/aws.json')) as f:
-    key = json.loads(f.read())
+
 
 class Config(object):
     APP_root = basedir
