@@ -6,12 +6,13 @@ from app.main import bp
 
 @bp.route('/')
 def index():
-
     return render_template('index.html', title='Home')
+
 
 @bp.route('/privacy')
 def privacy():
     return render_template('privacy.html')
+
 
 @bp.route('/robots.txt')
 @bp.route('/sitemap.xml')
