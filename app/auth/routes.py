@@ -1,15 +1,15 @@
-import time
-import boto3
-from datetime import datetime, timezone
-from boto3.dynamodb.conditions import Key, Attr
-from flask_login import current_user, login_user, logout_user, login_required
-from flask import redirect, url_for, render_template, request, flash, current_app
-from werkzeug.urls import url_parse
-from app.auth import bp
-from app.auth.forms import LoginForm, ChangePasswordForm
-from werkzeug.utils import secure_filename
 import os
 from shutil import copyfile
+
+import boto3
+from flask import redirect, url_for, render_template, request, flash, current_app
+from flask_login import current_user, login_user, logout_user, login_required
+from werkzeug.urls import url_parse
+from werkzeug.utils import secure_filename
+
+from app.auth import bp
+from app.auth.forms import LoginForm, ChangePasswordForm
+
 CURRENT_USER = None
 
 
@@ -50,7 +50,7 @@ def login():
     c_form = ChangePasswordForm()
     client = boto3.client('cognito-idp', region_name=current_app.config['AWS_DEFAULT_REGION'],
                           aws_access_key_id=current_app.config['AWS_ACCESS_KEY_ID'],
-                            aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'])
+                          aws_secret_access_key=current_app.config['AWS_SECRET_ACCESS_KEY'])
     # Login page logic
     if l_form.validate_on_submit():
         result = request.form.to_dict()
@@ -177,7 +177,7 @@ def upload_image():
                     filename = secure_filename(image.filename)
                     image.save(os.path.join(current_app.config["IMAGE_UPLOADS"], filename))
                     copyfile(os.path.join(current_app.config["IMAGE_UPLOADS"], filename),
-                        os.path.join(current_app.config["IMAGE_UPLOADS"], 'SPOTIFY_COVER.png'))
+                             os.path.join(current_app.config["IMAGE_UPLOADS"], 'SPOTIFY_COVER.png'))
                     current_app.logger.info(f"Image Saved, {filename}")
                     flash('Image saved!', 'success')
                     return redirect(request.url)

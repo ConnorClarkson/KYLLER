@@ -2,7 +2,7 @@
 
 {% block head_css %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('main.static', filename='css/index.css' )}}">
+<link href="{{ url_for('main.static', filename='css/index.css' )}}" rel="stylesheet">
 
 {% endblock %}
 
@@ -10,11 +10,11 @@
 <div class="container-fluid">
     <div style="margin-top:5vh;">
         <div id="cover_artwork">
-            <img class="rounded img-fluid" src="{{ url_for('static', filename='img/SPOTIFY_COVER.png') }}"
-                 width="500" height="500" id="cover_image" alt="Single Artwork">
+            <img alt="Single Artwork" class="rounded img-fluid"
+                 height="500" id="cover_image" src="{{ url_for('static', filename='img/SPOTIFY_COVER.png') }}" width="500">
             <h1 style="text-align:center; margin:1vh;padding1vh;"></h1>
-            <a href="{% editable spotify_single %}https://open.spotify.com/track/5gl7PhMrTDpyDrIsEiFWj0?si=IPmqDu3SS1uN8KU0-TqJkA{% endeditable %}"
-               target="_blank" rel="noreferrer" class="btn btn-success" id="cover_button"
+            <a class="btn btn-success"
+               href="{% editable spotify_single %}https://open.spotify.com/track/5gl7PhMrTDpyDrIsEiFWj0?si=IPmqDu3SS1uN8KU0-TqJkA{% endeditable %}" id="cover_button" rel="noreferrer" target="_blank"
             ><i class="fab fa-spotify"></i> &emsp; Listen Now!</a>
         </div>
     </div>

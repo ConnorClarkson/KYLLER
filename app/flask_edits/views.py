@@ -2,6 +2,7 @@
 """
 
 import json
+
 from flask import (
     Blueprint,
     current_app,
@@ -14,6 +15,7 @@ from flask_login import login_required
 from jinja2.environment import copy_cache
 
 edits = Blueprint('edits', __name__, template_folder='templates', static_folder='static')
+
 
 @edits.route('/', defaults={'page': None})
 @edits.route('/<path:page>')
@@ -33,6 +35,7 @@ def index(page):
                            summernote=current_app.config['EDITS_SUMMERNOTE'],
                            preview=current_app.jinja_env.edits_preview)
 
+
 @edits.route('/preview', methods=['POST'])
 def preview():
     if request.form.get('state') == 'true':
@@ -49,6 +52,7 @@ def preview():
         current_app.jinja_env.cache.clear()
 
     return ''
+
 
 @edits.route('/save', methods=['POST'])
 @login_required

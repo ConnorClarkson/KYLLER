@@ -1,12 +1,11 @@
 """Flask-Edits
 """
 
-from flask import request
-from jinja2.environment import copy_cache
-
-from collections import OrderedDict
 import json
 import os
+from collections import OrderedDict
+
+from jinja2.environment import copy_cache
 
 from .editable import EditableExtension
 from .views import edits

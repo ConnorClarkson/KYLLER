@@ -2,10 +2,9 @@
 """
 
 from collections import OrderedDict
-import hashlib
 
-from jinja2.nodes import Output, Template, TemplateData
 from jinja2.ext import Extension
+from jinja2.nodes import Output, Template, TemplateData
 
 
 class EditableExtension(Extension):
