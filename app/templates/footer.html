@@ -1,18 +1,26 @@
 {% block footer %}
 
-        <div class="footer-copyright text-center">
-            <ul class="list-inline list-social">
-                <li class="social-instagram list-inline-item">
-                    <a href="{% editable instagram %}https://www.instagram.com/kyllerbeats/{% endeditable %}" target="_blank" aria-label="instagram link" rel="noreferrer"><i class="fab fa-instagram fa-2x"></i></a>
-                </li>
-                <li class="social-spotify list-inline-item">
-                    <a href="{% editable spotify %}https://open.spotify.com/artist/0Qrlk3ddVU4I6ffIM0UFEB{% endeditable %}" target="_blank" aria-label="spotify link" rel="noreferrer"><i class="fab fa-spotify fa-2x"></i></a>
-                </li>
-                <li class="social-soundcloud list-inline-item">
-                    <a href="{% editable soundcloud %}https://soundcloud.com/kyllerbeats{% endeditable %}" target="_blank" rel="noreferrer"><i class="fab fa-soundcloud fa-2x" aria-label="soundcloud link" ></i></a>
-                </li>
-            </ul>
-            <p style="color:white">KYLLERBEATS&copy;  | <a href="{{ url_for('main.privacy', _method='GET')}}">Cookie Policy</a></p>
-        </div>
-    </footer>
+<div class="footer-copyright text-center">
+    <ul class="list-inline list-social">
+        <li class="social-instagram list-inline-item">
+            <a aria-label="instagram link" href="{% editable instagram %}https://www.instagram.com/kyllerbeats/{% endeditable %}"
+               rel="noreferrer" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        </li>
+        <li class="social-spotify list-inline-item">
+            <a aria-label="spotify link"
+               href="{% editable spotify %}https://open.spotify.com/artist/0Qrlk3ddVU4I6ffIM0UFEB{% endeditable %}" rel="noreferrer" target="_blank"><i class="fab fa-spotify fa-2x"></i></a>
+        </li>
+        <li class="social-youtube list-inline-item">
+            <a aria-label="youtube link"
+               href="{% editable youtube %}youtube.com/watch?v=QVVdnFsfgk0{% endeditable %}" rel="noreferrer" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+        </li>
+        <li class="social-soundcloud list-inline-item">
+            <a href="{% editable soundcloud %}https://soundcloud.com/kyllerbeats{% endeditable %}" rel="noreferrer"
+               target="_blank"><i aria-label="soundcloud link" class="fab fa-soundcloud fa-2x"></i></a>
+        </li>
+    </ul>
+    <p style="color:white">KYLLERBEATS&copy; | <a href="{{ url_for('main.privacy', _method='GET')}}">Cookie Policy</a>
+    </p>
+</div>
+</footer>
 {% endblock %}

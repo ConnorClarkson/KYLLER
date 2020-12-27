@@ -2,17 +2,17 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-from config import Config
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
+
 from app.flask_edits import Edits
+from config import Config
 
 login = LoginManager()
 login.login_view = 'auth.login'
 bootstrap = Bootstrap()
 edits = Edits()
-
 
 
 def create_app(config_class=Config):
