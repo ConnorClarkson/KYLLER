@@ -85,6 +85,7 @@ def login():
             flash('Invalid username or password', 'error')
             return redirect(url_for('auth.login'))
         except Exception as e:
+            current_app.logger.exception(f"Login error: {e}")
             flash('Please try again.', 'error')
             return redirect(url_for('auth.login'))
 
