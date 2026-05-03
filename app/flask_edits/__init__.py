@@ -5,8 +5,6 @@ import json
 import os
 from collections import OrderedDict
 
-from jinja2.environment import copy_cache
-
 from .editable import EditableExtension
 from .views import edits
 
@@ -42,7 +40,7 @@ class Edits(object):
         app.jinja_env.add_extension('app.flask_edits.EditableExtension')
         app.jinja_env.edits = _db
         app.jinja_env.edits_preview = app.config['EDITS_PREVIEW']
-        app.jinja_env.edits_cache = copy_cache(app.jinja_env.cache)
+        app.jinja_env.edits_cache = dict(app.jinja_env.cache or {})
 
         if app.config['EDITS_PREVIEW']:
             app.jinja_env.cache = None

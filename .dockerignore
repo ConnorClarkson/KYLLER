@@ -1,0 +1,12 @@
+.git
+.gitignore
+.flaskenv
+.env
+*.pyc
+__pycache__/
+.pytest_cache/
+logs/
+*.log
+README.md
+.github/
+.claude/
