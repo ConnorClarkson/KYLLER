@@ -1,8 +1,9 @@
 import logging
 import os
+import sys
 from logging.handlers import RotatingFileHandler
 
-from flask import Flask
+from flask import Flask, jsonify
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 
@@ -35,6 +36,13 @@ def create_app(config_class=Config):
         application.register_blueprint(main_bp)
 
     if not application.debug and not application.testing:
+        stream_handler = logging.StreamHandler(sys.stdout)
+        stream_handler.setFormatter(logging.Formatter(
+            '%(asctime)s %(levelname)s: %(message)s '
+            '[in %(pathname)s:%(lineno)d]'))
+        stream_handler.setLevel(logging.INFO)
+        application.logger.addHandler(stream_handler)
+
         if not os.path.exists('logs'):
             os.mkdir('logs')
         file_handler = RotatingFileHandler('logs/officaldanc.log',
@@ -47,5 +55,9 @@ def create_app(config_class=Config):
 
         application.logger.setLevel(logging.INFO)
         application.logger.info('KYLLER startup')
+
+    @application.route('/health')
+    def health():
+        return jsonify(status='ok'), 200
 
     return application
